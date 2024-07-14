@@ -1,2 +1,4 @@
-# libtcc
-TinyCC compiler deployed as a library to be used from C++ and Python
+# jitcc
+C++ and Python library for compiling and running C code on-the-fly.
+Bundles the TinyCC compiler by default. In the future, more compilers will be supported
+
