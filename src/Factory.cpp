@@ -48,7 +48,9 @@ Factory *Factory::inst() {
         m_inst = std::unique_ptr<Factory>(new Factory());
     }
     return m_inst.get();
-};
+}
+
+std::unique_ptr<Factory> Factory::m_inst;
 
 }
 }

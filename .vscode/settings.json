@@ -1,5 +1,15 @@
 {
     "C_Cpp.default.browse.path": [
         "src/include"
-    ]
+    ],
+    "python.defaultInterpreterPath": "${workspaceFolder}/packages/python/bin/python3",
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        "./test",
+        "-p",
+        "test_*.py"
+    ],
+    "python.testing.pytestEnabled": false,
+    "python.testing.unittestEnabled": true
 }

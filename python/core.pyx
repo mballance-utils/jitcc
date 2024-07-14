@@ -84,7 +84,7 @@ cdef class Factory(object):
             hndl = <decl.IFactoryP>(<intptr_t>(func()))
             factory = Factory()
             factory._hndl = hndl
-            factory.init(dm_core.Factory.inst())
+            factory.init(dm_core.Factory.inst().getDebugMgr())
             _Factory_inst = factory
 
         return _Factory_inst

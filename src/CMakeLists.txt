@@ -1,5 +1,6 @@
 
-set(BUILD_RPATH_USE_ORIGIN True)
+set(BUILD_RPATH_USE_ORIGIN 1)
+set(CMAKE_INSTALL_RPATH $ORIGIN)
 
 file (GLOB jitcc_SRC 
     "*.h" 
@@ -14,6 +15,15 @@ target_include_directories(jitcc PUBLIC
     ${CMAKE_BINARY_DIR}/tinycc/include
     "${debug_mgr_INCDIR}"
 )
+
+target_link_directories(jitcc PUBLIC
+    ${CMAKE_BINARY_DIR}/tinycc/lib
+    ${CMAKE_BINARY_DIR}/lib
+)
+
+target_link_libraries(jitcc tcc)
+
+
 
 install(TARGETS jitcc
     DESTINATION lib
