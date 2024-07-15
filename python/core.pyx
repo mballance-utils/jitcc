@@ -9,6 +9,10 @@ from libc.stdint cimport intptr_t
 
 cdef class JitCC(object):
 
+    def __dealloc__(self):
+        if self._owned:
+            del self._hndl
+
     cpdef int addIncludePath(self, str path):
         return self._hndl.addIncludePath(path.encode())
 
