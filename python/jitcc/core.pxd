@@ -1,4 +1,5 @@
 
+import ctypes
 cimport debug_mgr.core as dm_core
 from jitcc cimport decl
 from libc.stdint cimport intptr_t
@@ -22,9 +23,9 @@ cdef class JitCC(object):
     cpdef void undefPreProcSym(self, str sym)
     cpdef int addSrcFile(self, str path)
     cpdef int addSrcStr(self, str src)
-    cpdef int addSymbol(self, str sym, val)
+    cpdef int addSymbol(self, str sym, object val)
     cpdef int relocate(self)
-    cpdef getSymbol(self, str sym)
+    cpdef object getSymbol(self, str sym)
 
     @staticmethod
     cdef JitCC mk(decl.IJitCC *hndl, bool owned=*)

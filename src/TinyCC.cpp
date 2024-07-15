@@ -29,6 +29,7 @@ namespace cc {
 
 TinyCC::TinyCC(dmgr::IDebugMgr *dmgr) {
     m_tcc = tcc_new();
+    tcc_set_output_type(m_tcc, TCC_OUTPUT_MEMORY);
 }
 
 TinyCC::~TinyCC() {

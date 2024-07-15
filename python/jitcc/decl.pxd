@@ -23,7 +23,7 @@ cdef extern from "jit/cc/IJitCC.h" namespace "jit::cc":
         void undefPreProcSym(const cpp_string &sym)
         int addSrcFile(const cpp_string &path)
         int addSrcStr(const cpp_string &src)
-        int addSymbol(const cpp_string &sym, const void *val)
+        int addSymbol(const cpp_string &sym, void *val)
         int relocate()
         void *getSymbol(const cpp_string &sym)
 

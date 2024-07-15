@@ -37,7 +37,7 @@ ExternalProject_Add(TINYCC
     PREFIX tinycc
     SOURCE_DIR ${TINYCC_DIR}
   CMAKE_CACHE_ARGS
-    CONFIGURE_COMMAND sh -c "${PACKAGES_DIR}/tinycc/configure --prefix=<INSTALL_DIR> --disable-static"
+    CONFIGURE_COMMAND sh -c "${PACKAGES_DIR}/tinycc/configure --prefix=<INSTALL_DIR> --disable-static --debug"
     BUILD_COMMAND sh -c "make \\${MAKEFLAGS}"
     INSTALL_COMMAND sh -c "make \\${MAKEFLAGS} install"
     -DCMAKE_C_COMPILER:STRING=${CMAKE_C_COMPILER}

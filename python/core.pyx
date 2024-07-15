@@ -25,17 +25,21 @@ cdef class JitCC(object):
         return self._hndl.addSrcFile(path.encode())
 
     cpdef int addSrcStr(self, str src):
-        return self._hndl_addSrcStr(src.encode())
+        return self._hndl.addSrcStr(src.encode())
 
-    cpdef int addSymbol(self, str sym, val):
-        return self._hndl.addSymbol(sym.encode(), NULL)
+    cpdef int addSymbol(self, str sym, object val):
+        cdef uintptr_t addr = <uintptr_t>ctypes.cast(val, ctypes.c_void_p).value
+        return self._hndl.addSymbol(sym.encode(), <void *>addr)
 
     cpdef int relocate(self):
         return self._hndl.relocate()
 
-    cpdef getSymbol(self, str sym):
-        return None
-#        return self._hndl.getSymbol(sym.encode())
+    cpdef object getSymbol(self, str sym):
+        cdef void *res = self._hndl.getSymbol(sym.encode())
+        if res == NULL:
+            return None
+        else:
+            return ctypes.cast(<uintptr_t>res, ctypes.c_void_p)
 
     @staticmethod
     cdef JitCC mk(decl.IJitCC *hndl, bool owned=True):

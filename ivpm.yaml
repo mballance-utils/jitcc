@@ -10,7 +10,8 @@ package:
 
       # Snapshot from 6/11/2024
     - name: tinycc
-      url: https://repo.or.cz/tinycc.git/snapshot/08a4c52de39b202f02d1ec525c64336d11ad9ccf.tar.gz
+#      url: https://repo.or.cz/tinycc.git/snapshot/08a4c52de39b202f02d1ec525c64336d11ad9ccf.tar.gz
+      url: https://github.com/TinyCC/tinycc.git
     - name: debug-mgr
       url: https://github.com/mballance-utils/debug-mgr.git
     - name: ciostream
